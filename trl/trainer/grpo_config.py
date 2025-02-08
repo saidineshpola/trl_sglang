@@ -79,6 +79,11 @@ class GRPOConfig(TrainingArguments):
             `vllm_gpu_memory_utilization`, leading to a reduced KV cache size. If not set, vLLM will use the model
             context size, which might be much larger than the KV cache, leading to inefficiencies.
 
+        > Parameters that control generation acceleration powered by sgLang
+         use_sglang (`bool`, *optional*, defaults to `False`):
+            Whether to use SGLang for generating completions. If set to `True`, ensure that a GPU is kept unused for
+            training, as sgLang will require one for generation. SGLang must be installed (https://docs.sglang.ai/start/install.html).
+
         > Parameters that control the training
 
         learning_rate (`float`, *optional*, defaults to `1e-6`):
